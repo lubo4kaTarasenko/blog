@@ -1,0 +1,29 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.header{
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(29,38,253,1) 50%, rgba(69,187,252,1) 100%);
+  padding: 20px;
+  overflow: hidden;
+  color: white;
+  font-size: 3em;
+  a{
+    text-decoration: none;
+    font-size: 0.60em;
+    &:hover{
+      background: none;
+    }
+    &:visited{
+      color: white;
+    }
+  }
+  .left{
+    display: inline;
+    float: left;
+  }
+  .right{
+    display: inline;
+    float: right;
+  }
+}
