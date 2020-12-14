@@ -9,13 +9,7 @@
   color: white;
   font-size: 3em;
   a{
-    font-size: 0.60em;
-    &:hover{
-      background: none;
-    }
-    &:visited{
-      color: white;
-    }
+      font-size: 0.60em;
   }
   .left{
     display: inline;
@@ -32,11 +26,12 @@
 }
 .show_post{
   p{
-    font-size: 1.5em;
-  }
-  h4{
-    color: #833ab4;
-  }
+    font-size: 15px;
+    word-break: break-word;
+    overflow: hidden;
+  } 
+}
+body{
   a{
     text-decoration: none;
     color: white;
@@ -47,5 +42,20 @@
       color: white;
     }
   }
-  
+  h4{
+    color: #833ab4;
+  }
+  td{
+    p {
+      font-size: 15px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 350px;
+    }
+  }
+  h2{
+    color: #833ab4; 
+  }
 }
+

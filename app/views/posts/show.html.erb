@@ -6,6 +6,9 @@
     <p><%= @post.title %></p>
   </div>
   <div>
+    <img src='<%= @post.image %>' width='200px'/>
+  </div>
+  <div>
     <h4>Description:</h4>
     <p><%= @post.name %></p>
   </div>
@@ -14,10 +17,7 @@
     <p><%= @post.content %></p>
   </div>
 
-  <div>
-    <img src='<%= @post.image %>' width='200px'/>
-  </div>
-
+  <br/>
   <div class='btn btn-primary'><%= link_to 'Edit', edit_post_path(@post) %></div> 
   <div class='btn btn-primary'><%= link_to 'Back', posts_path %></div>
 </div>
