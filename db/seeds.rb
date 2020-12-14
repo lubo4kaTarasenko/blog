@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+authors = 5.times do
+  name = Faker::Name.unique.name.split(' ')
+  Author.create(
+    { 
+      first_name: name.first,
+      last_name: name.last,
+      gender: Faker::Gender.binary_type,
+      birthday: Faker::Date.between(from: '1970-09-23', to: '2007-09-25')
+     }
+  )
+end     
