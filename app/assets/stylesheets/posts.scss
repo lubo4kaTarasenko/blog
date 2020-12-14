@@ -70,7 +70,10 @@ body{
 }
 @media screen and (max-width: 600px) {
   .none{
-    display: none
+    display: none;
+  }
+  .header{
+    font-size: 1.5em;
   }
 }
 
