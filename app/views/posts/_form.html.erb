@@ -12,26 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <b><%= form.label :title %></b>
+    <%= form.text_field :title, class: 'form-control'%>
+  </div>
+
+    <div class="field">
+   <b> <%= form.label :name, 'Description'%></b>
+    <%= form.text_field :name, class: 'form-control'%>
+  </div>
+
+
+  <div class="field">
+    <b><%= form.label :content %></b>
+    <%= form.text_area :content, class: 'form-control', rows: "3"%>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <b><%= form.label :image %></b>
+    <%= form.text_field :image, class: 'form-control'  %>
   </div>
 
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions " >
+    <%= form.submit nil, class: "btn btn-primary"%>
   </div>
 <% end %>

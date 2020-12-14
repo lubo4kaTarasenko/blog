@@ -1,24 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class='cont show_post'>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
+  <div>
+    <h4>Title:</h4>
+    <p><%= @post.title %></p>
+  </div>
+  <div>
+    <h4>Description:</h4>
+    <p><%= @post.name %></p>
+  </div>
+  <div>
+    <h4>Content:</h4>
+    <p><%= @post.content %></p>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <div>
+    <img src='<%= @post.image %>' width='200px'/>
+  </div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <div class='btn btn-primary'><%= link_to 'Edit', edit_post_path(@post) %></div> 
+  <div class='btn btn-primary'><%= link_to 'Back', posts_path %></div>
+</div>

@@ -9,7 +9,6 @@
   color: white;
   font-size: 3em;
   a{
-    text-decoration: none;
     font-size: 0.60em;
     &:hover{
       background: none;
@@ -26,4 +25,27 @@
     display: inline;
     float: right;
   }
+}
+.cont{
+  margin: 20px;
+  width: 60%;
+}
+.show_post{
+  p{
+    font-size: 1.5em;
+  }
+  h4{
+    color: #833ab4;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+    &:hover{
+      background: none;
+    }
+    &:visited{
+      color: white;
+    }
+  }
+  
 }
