@@ -22,8 +22,8 @@
           <td class='none'><p><%= post.content %></p></td>
           <td class='none'><img src='<%= post.image %>' width='100px'></td>
           <td><div class='btn btn-primary'><%= link_to 'Show', post %></div></td>
-          <td><div class='btn btn-primary'><%= link_to 'Edit', edit_post_path(post) %></div></td>
-          <td><div class='btn btn-primary'><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div></td>
+          <td><div class='btn btn-warning'><%= link_to 'Edit', edit_post_path(post) %></div></td>
+          <td><div class='btn btn-danger'><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div></td>
         </tr>
       <% end %>
     </tbody>
