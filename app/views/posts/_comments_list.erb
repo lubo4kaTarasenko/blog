@@ -1,0 +1,10 @@
+<% @post.comments.published.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.author.full_name %>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
