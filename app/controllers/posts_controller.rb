@@ -5,7 +5,15 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
+  def show
+    @comment_status = params[:comments_status].to_s.downcase
+
+    if @comment_status == 'unpublished'
+      @comments = @post.comments.unpublished
+    else
+      @comments = @post.comments.published
+    end
+  end
 
   def new
     @post = Post.new

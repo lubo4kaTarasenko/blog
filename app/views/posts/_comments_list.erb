@@ -1,4 +1,21 @@
-<% @post.comments.published.each do |comment| %>
+<script>
+  $(function(){
+    $("#comments_select").change(function(){
+      $('#comments_show').submit()
+    })
+  })
+</script>
+
+<form action="<%= post_path(@post) %>" method='get' id='comments_show'>
+  <div class='field'> 
+    <select name='comments_status' class='btn btn-primary' id='comments_select'>
+      <option <%= @comment_status == 'published' ? 'selected' : '' %> >Published</option>
+      <option <%= @comment_status == 'unpublished' ? 'selected' : '' %> > Unpublished</option>
+    </select> 
+  </div>
+</form>
+
+<% @comments.each do |comment| %>
   <p>
     <strong>Commenter:</strong>
     <%= comment.author.full_name %>
