@@ -1,4 +1,4 @@
-<% comment = @post.comments.build%>
+<% comment = comment || @post.comments.build%>
 <%= form_with model: [ @post, comment ] do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
