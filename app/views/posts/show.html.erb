@@ -20,7 +20,9 @@
     <h4>Author:</h4>
     <p><%= @post.author.full_name %></p>
   </div>
-
+  <div>
+    <i>  updated <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i>
+  </div>
   <br/>
   <div class='btn btn-warning'><%= link_to 'Edit', edit_post_path(@post) %></div> 
   <div class='btn btn-primary'><%= link_to 'Back', posts_path %></div>
