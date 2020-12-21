@@ -96,8 +96,24 @@ body{
   margin-bottom: 10px;
   word-break: break-word;
   overflow: hidden;
+  a {
+    text-decoration: none;
+    color: white;
+    &:hover{
+      background: none;
+      color: white;
+    }
+    &:visited{
+      color: white;
+    }
+  }
   button{
     color: white;
+    &:hover{
+      color: white;
+    }
   }
 }
-
+#alert {
+  color: red;
+}

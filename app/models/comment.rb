@@ -4,7 +4,8 @@ class Comment < ApplicationRecord
 
   enum status: %i[unpublished published]
 
-  validates :body, presence: true, length: { minimum: 5 }
+  validates :body, presence: true
+  validates :body, length: { minimum: 5 }
 
   # scope :published,   -> { where(status: :published) }
   # scope :unpublished,   -> { where(status: :unpublished) }

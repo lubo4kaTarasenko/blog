@@ -2,7 +2,12 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    redirect_to post_path(@post)
+    message = if @comment.persisted?
+                { notice: 'Commented created successfully' }
+              else
+                { alert: 'Comment was not created. Make sure your comment is not less then 5 chars' }
+              end
+    redirect_to post_path(@post), message
   end
 
   def destroy
