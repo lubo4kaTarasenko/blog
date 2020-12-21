@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to post_path(@post), notice: 'Comment was successfully updated.' 
+      redirect_to post_path(@post), notice: 'Comment was successfully updated.'
     else
       redirect_to post_path(@post)
     end
@@ -26,10 +26,11 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
     @comment.update(status: :published)
-    redirect_to post_path(@post), notice: 'Comment was successfully published.' 
+    redirect_to post_path(@post), notice: 'Comment was successfully published.'
   end
 
   private
+
   def comment_params
     params.require(:comment).permit(:body, :author_id)
   end

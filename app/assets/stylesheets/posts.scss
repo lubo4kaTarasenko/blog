@@ -94,6 +94,8 @@ body{
   background: #5f73f575;
   border-radius: 10px;
   margin-bottom: 10px;
+  word-break: break-word;
+  overflow: hidden;
   button{
     color: white;
   }

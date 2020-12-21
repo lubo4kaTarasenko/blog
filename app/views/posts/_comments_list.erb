@@ -21,12 +21,15 @@
 
 <% @comments.each do |comment| %>
   <div class='comment'>
-    <p>
+    <div>
       <%= comment.body %>
-    </p>
+    </div>
     <p>
       <b><%= comment.author.full_name %></b>
     </p>
+    <div>
+     <i>  updated <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago</i>
+    </div>
     <button class='btn btn-warning edit_comment'>Edit Comment</button>
     <div class='cont add_comment update_comment invisible'>
       <h4>Edit Comment</h4>

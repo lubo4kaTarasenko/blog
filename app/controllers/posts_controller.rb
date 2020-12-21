@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
     @posts = Post.all
@@ -8,11 +8,11 @@ class PostsController < ApplicationController
   def show
     @comment_status = params[:comments_status].to_s.downcase
 
-    if @comment_status == 'unpublished'
-      @comments = @post.comments.unpublished
-    else
-      @comments = @post.comments.published
-    end
+    @comments = if @comment_status == 'unpublished'
+                  @post.comments.unpublished
+                else
+                  @post.comments.published
+                end
   end
 
   def new
@@ -24,23 +24,23 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.' 
+      redirect_to @post, notice: 'Post was successfully created.'
     else
       render :new
     end
   end
 
-  def update   
+  def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.' 
+      redirect_to @post, notice: 'Post was successfully updated.'
     else
-      render :edit 
+      render :edit
     end
   end
 
   def destroy
-    @post.destroy    
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'    
+    @post.destroy
+    redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
   private
