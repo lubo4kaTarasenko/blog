@@ -7,10 +7,10 @@
 </script>
 
 <form action="<%= post_path(@post) %>" method='get' id='comments_show'>
-  <div class='field'> 
+  <div class='field'>
     <select name='comments_status' class='btn btn-primary' id='comments_select'>
       <option <%= @comment_status == 'published' ? 'selected' : '' %> >Published</option>
-      <option <%= @comment_status == 'unpublished' ? 'selected' : '' %> > Unpublished</option>
+      <option <%= @comment_status == 'unpublished' ? 'selected' : '' %> >Unpublished</option>
     </select> 
   </div>
 </form>
@@ -24,4 +24,9 @@
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
+  <div class='btn btn-danger'>
+    <%= link_to 'Destroy Comment', [comment.post, comment],
+               method: :delete,
+               data: { confirm: "Are you sure?" } %>
+ </div>
 <% end %>
