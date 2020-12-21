@@ -83,6 +83,19 @@ body{
   }
 }
 .invisible{
-  display: none;
+  display: none !important;
+}
+.comment_form{
+  background: #ebe1ff;
+  padding: 10px;
+}
+.comment{
+  padding: 10px;
+  background: #5f73f575;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  button{
+    color: white;
+  }
 }
 
