@@ -27,11 +27,16 @@
     <p>
       <b><%= comment.author.full_name %></b>
     </p>
-    <button class='btn btn-warning edit_comment'>Edit comment</button>
+    <button class='btn btn-warning edit_comment'>Edit Comment</button>
     <div class='cont add_comment update_comment invisible'>
       <h4>Edit Comment</h4>
       <%= render 'comment_form', comment: comment%>
     </div>
+    <% if comment.status == 'unpublished' %>
+      <div class='btn btn-primary'>
+        <%= link_to 'Publish Comment', publish_post_comment_path(@post.id, comment.id), method: :post %>
+      </div>
+    <% end %>
     <div class='btn btn-danger'>
       <%= link_to 'Destroy Comment', [comment.post, comment],
                 method: :delete,
