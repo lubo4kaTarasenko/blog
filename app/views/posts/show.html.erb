@@ -35,7 +35,7 @@
 </div>
 <div class='cont comment_list'>
   <h4>Comments</h4>
-  <p><i><%= @post.comments_count %> <%= @post.comments_count != 1 ? ' comments' : ' comment' %></i></p>
+  <p><i><%= @post.comments_count || 0 %> <%= @post.comments_count != 1 ? ' comments' : ' comment' %></i></p>
   
   <%= render 'comments_list' %>
 </div>
