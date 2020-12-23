@@ -12,7 +12,9 @@ class PostsController < ApplicationController
                   @post.comments.unpublished
                 else
                   @post.comments.published
-                end
+                end   
+                
+    @post.update_columns(views_count: @post.views_count.succ)
   end
 
   def new

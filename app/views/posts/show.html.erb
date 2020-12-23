@@ -21,8 +21,9 @@
     <h4>Author:</h4>
     <p><%= @post.author.full_name %></p>
   </div>
-  <div>
-    <i>  updated <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i>
+  <div style="background: #fef7ff;">
+    <i>  &#9997; <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i> &nbsp; &nbsp;
+    <i> &#128065; <%= @post.views_count %> </i>
   </div>
   <br/>
   <div class='btn btn-warning'><%= link_to 'Edit', edit_post_path(@post) %></div> 
@@ -34,6 +35,7 @@
 </div>
 <div class='cont comment_list'>
   <h4>Comments</h4>
+  <p><i><%= @post.comments_count %> <%= @post.comments_count != 1 ? ' comments' : ' comment' %></i></p>
   
   <%= render 'comments_list' %>
 </div>
