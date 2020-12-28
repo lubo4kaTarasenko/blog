@@ -117,3 +117,9 @@ body{
 #alert {
   color: red;
 }
+.add_comment h6 a {
+  color: blue;
+  &:hover{
+    color: purple;
+  }
+}

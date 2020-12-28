@@ -32,7 +32,7 @@
     <%= form.text_field :image, class: 'form-control'  %>
   </div>
   <div class='field'> 
-      <%= form.select(:author_id, Author.all.collect {|a| [ a.full_name, a.id ] }, {}, {:class => "select_author"}) %>
+      <%= current_author.email %>
   </div>
   <div class="actions " >
     <%= form.submit nil, class: "btn btn-success"%>
