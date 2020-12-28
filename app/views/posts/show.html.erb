@@ -16,7 +16,7 @@
   </div>
   <div>
     <h4>Author:</h4>
-    <p><%= @post.author.full_name %></p>
+    <p><%= @post.author.email || @post.author.full_name %></p>
   </div>
   <div style="background: #fef7ff;">
     <i>  &#9997; <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i> &nbsp; &nbsp;

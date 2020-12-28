@@ -25,25 +25,30 @@
       <%= comment.body %>
     </div>
     <p>
-      <b><%= comment.author.full_name %></b>
+      <b><%= comment.author.email || comment.author.full_name %></b>
     </p>
     <div>
-     <i>  updated <%= distance_of_time_in_words(comment.updated_at, Time.now) %> ago</i>
+      <%if comment.created_at < comment.updated_at%><b>edited</b> |<%end%>
+      <% less_than_hour = comment.created_at >= 1.hour.ago %>
+      <% time = distance_of_time_in_words(comment.created_at, Time.now)%>
+     <i> created  <%= time  %> ago</i>
     </div>
-    <button class='btn btn-warning edit_comment'>Edit Comment</button>
-    <div class='cont add_comment update_comment invisible'>
-      <h4>Edit Comment</h4>
-      <%= render 'comment_form', comment: comment%>
-    </div>
-    <% if comment.status == 'unpublished' %>
-      <div class='btn btn-primary'>
-        <%= link_to 'Publish Comment', publish_post_comment_path(@post.id, comment.id), method: :post %>
+     <% if logged_in? && current_author.id == comment.author.id && less_than_hour %>   
+      <button class='btn btn-warning edit_comment'>Edit Comment</button>
+      <div class='cont add_comment update_comment invisible'>
+        <h4>Edit Comment</h4>
+        <%= render 'comment_form', comment: comment%>
+      </div>
+      <% if comment.status == 'unpublished' %>
+        <div class='btn btn-primary'>
+          <%= link_to 'Publish Comment', publish_post_comment_path(@post.id, comment.id), method: :post %>
+        </div>
+      <% end %>
+      <div class='btn btn-danger'>
+        <%= link_to 'Destroy Comment', [comment.post, comment],
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
       </div>
     <% end %>
-    <div class='btn btn-danger'>
-      <%= link_to 'Destroy Comment', [comment.post, comment],
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-    </div>
  </div>
 <% end %>

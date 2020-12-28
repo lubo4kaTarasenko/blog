@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_public_post, only: %i[show]
   before_action :set_author_post, only: %i[edit update destroy]
 
+
   def index
     @posts = Post.all
   end

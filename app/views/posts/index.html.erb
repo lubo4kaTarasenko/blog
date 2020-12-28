@@ -8,7 +8,7 @@
       <% @posts.each do |post| %>
         <tr>          
           <td><p><b><%= post.title %></b></p></td>
-          <td class='none'><p><%= post.author.full_name %></p></td>
+          <td class='none'><p><%= post.author.email || post.author.full_name%></p></td>
           <td class='none'><p><%= post.content %></p></td>
           <td class='none'><img src='<%= post.image %>' width='100px'></td>
           <td><div class='btn btn-primary'><%= link_to 'Show', post %></div></td>

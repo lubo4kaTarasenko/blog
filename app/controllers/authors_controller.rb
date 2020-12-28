@@ -13,4 +13,7 @@ class AuthorsController < ApplicationController
       redirect_to '/authors/new', alert: 'Invalid email or password'
     end
   end
+
+  def profile
+  end
 end
