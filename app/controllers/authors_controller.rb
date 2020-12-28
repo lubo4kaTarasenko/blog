@@ -15,5 +15,6 @@ class AuthorsController < ApplicationController
   end
 
   def profile
+    @author = current_author
   end
 end

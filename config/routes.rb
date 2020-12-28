@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :authors, only: [:new, :create]
+  resources :authors, only: [:new, :create] do
+    get :profile, on: :collection
+    patch :save_profile, on: :collection
+  end
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

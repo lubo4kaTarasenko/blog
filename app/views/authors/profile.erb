@@ -1,0 +1,33 @@
+<div class='cont'>
+  <%= form_with model: @author, url: save_profile_authors_path do |form| %>
+    <%if @author.avatar%>
+      <div>
+        <img src='<%= @author.avatar %>' width='200px'/>
+      </div>
+    <% else %>
+      <div>
+        <img src='http://i.piccy.info/i9/98bd0826806580638936c67da5003093/1609161325/28542/1407518/69918ava.png' width='200px'/>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= form.label :avatar%>
+      <%= form.text_field :avatar, class: 'form-control', rows: "3"%>
+      <i style="color: gray">put a link to your avatar here</i>
+    </div>
+    <div class="field">
+      <%= form.label :email%>
+      <%= form.text_field :email, class: 'form-control', rows: "3"%>
+    </div>
+    <div class="field">
+      <%= form.label :first_name%>
+      <%= form.text_field :first_name, class: 'form-control', rows: "3"%>
+    </div>     
+    <div class="field">
+      <%= form.label :last_name%>
+      <%= form.text_field :last_name, class: 'form-control', rows: "3"%>
+    </div>
+    <div class="actions " >
+      <%= form.submit 'Update profile', class: "btn btn-success"%>
+    </div>
+  <% end %>
+</div>
