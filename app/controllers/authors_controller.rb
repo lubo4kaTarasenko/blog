@@ -7,6 +7,10 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.create(params.require(:author).permit(:email, :password))
     session[:author_id] = @author.id
-    redirect_to :root
+    if @author.valid?
+      redirect_to :root
+    else
+      redirect_to '/authors/new', alert: 'Invalid email or password'
+    end
   end
 end
