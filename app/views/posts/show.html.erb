@@ -1,23 +1,20 @@
 <div class='cont show_post'>
   <div>
-    <h4>Title:</h4>
-    <p><%= @post.title %></p>
-  </div>
+    <h4><b><%= @post.title %></b></h4>
+  </div><br/>
   <div>
     <img src='<%= @post.image %>' width='200px'/>
-  </div>
+  </div><br/>
   <div>
-    <h4>Description:</h4>
-    <p><%= @post.name %></p>
-  </div>
+    <h5><%= @post.name %></h5>
+  </div><br/>
   <div>
-    <h4>Content:</h4>
     <p><%= @post.content %></p>
-  </div>
-  <div>
-    <h4>Author:</h4>
-    <p><%= @post.author.email || @post.author.full_name %></p>
-  </div>
+  </div><br/>
+  <div class='show_post_author'>
+    <%= render "authors/avatar", author: @post.author %>
+    <i><b><%= @post.author.email || @post.author.full_name %></b></i>
+  </div><br/>
   <div style="background: #fef7ff;">
     <i>  &#9997; <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i> &nbsp; &nbsp;
     <i> &#128065; <%= @post.views_count %> </i> &nbsp; &nbsp;

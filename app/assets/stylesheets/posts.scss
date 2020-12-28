@@ -11,14 +11,6 @@
   a{
       font-size: 0.60em;
   }
-  .left{
-    display: inline;
-    float: left;
-  }
-  .right{
-    display: inline;
-    float: right;
-  }
 }
 .cont{
   margin: 20px;
@@ -96,6 +88,9 @@ body{
   margin-bottom: 10px;
   word-break: break-word;
   overflow: hidden;
+  img {
+    width: 100px;
+  }
   a {
     text-decoration: none;
     color: white;
@@ -122,4 +117,15 @@ body{
   &:hover{
     color: purple;
   }
+}
+.left{
+  display: inline;
+  float: left;
+}
+.right{
+  display: inline;
+  float: right;
+}
+.show_post_author img{
+  width: 100px;
 }

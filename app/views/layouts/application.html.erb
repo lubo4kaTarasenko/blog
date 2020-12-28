@@ -21,7 +21,7 @@
         <% if logged_in? %>        
           <div class='right'>&#9998;<%= link_to 'New Post', new_post_path %> </div>
           <div class='right'>&#9825; <%= link_to 'Home', posts_path %></div>
-          <div class='right'><span style='font-size: 0.7em'>|</span><%= link_to 'Log out', logout_path, method: :delete %></div>
+          <div class='right'>&#9734;<%= link_to 'Log out', logout_path, method: :delete %></div>
           <div class='right'><%= link_to "#{current_author.email}", '/authors/profile', method: :get %></div>
         <% else %>
           <div class='right'>&#9996;<%= link_to "Log in", '/login', method: :get%></div>

@@ -1,0 +1,9 @@
+<%if author.avatar.present?%>
+  <div>
+    <img src='<%= author.avatar %>' width='200px'/>
+  </div>
+<% else %>
+  <div>
+    <img src='/ava.png' width='200px'/>
+  </div>
+<% end %>
