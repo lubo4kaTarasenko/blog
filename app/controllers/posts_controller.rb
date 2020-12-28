@@ -14,7 +14,8 @@ class PostsController < ApplicationController
                   @post.comments.published
                 end
 
-    @post.update_columns(views_count: @post.views_count.to_i.succ)
+   # @post.update_columns(views_count: @post.views_count.to_i.succ)
+   @post.increment!(:views_count)
   end
 
   def new

@@ -10,38 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_223_090_041) do
+ActiveRecord::Schema.define(version: 2020_12_28_075229) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'authors', force: :cascade do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.string 'gender'
-    t.datetime 'birthday'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "authors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.datetime "birthday"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
+    t.string "password_digest"
   end
 
-  create_table 'comments', force: :cascade do |t|
-    t.text 'body'
-    t.integer 'status', default: 0
-    t.integer 'author_id'
-    t.integer 'post_id'
-    t.integer 'user_id'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "status", default: 0
+    t.integer "author_id"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'posts', force: :cascade do |t|
-    t.string 'name'
-    t.string 'title'
-    t.text 'content'
-    t.string 'image'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'author_id'
-    t.integer 'comments_count'
-    t.integer 'views_count'
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.text "content"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "author_id"
+    t.integer "comments_count"
+    t.integer "views_count"
   end
+
 end
