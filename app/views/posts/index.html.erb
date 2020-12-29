@@ -1,19 +1,21 @@
-<div class='cont ow_x'>
+<script>
+  $(function(){
+    $(".clickable").click(function(e){
+        var url = $(this).find('a').attr("href")
+        $(location).attr('href',url);
+    });
+  })
+</script>
+<div class='container container_index'>
   <p id="notice"><%= notice %></p>
 
-  <h2>Posts</h2>
+    <% @posts.each do |post| %> 
+      <div class='row clickable'>       
+        <div class= "col-sm-2 column"><%= link_to "#{post.title} ", post, class: "link"%></div>
+        <div class='col-sm-3 column'><%= post.author.email || post.author.full_name%>
+        <%= render "authors/avatar", author: post.author %></div>
+        <div class='col-sm-7 column'><%= post.content.body.to_plain_text[0..500] + '...' %></div>
+      </div>
+    <% end %>
 
-  <table class="table table-hover">
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>          
-          <td><p><b><%= post.title %></b></p></td>
-          <td class='none'><p><%= post.author.email || post.author.full_name%></p></td>
-          <td class='none'><p><%= post.content %></p></td>
-          <td class='none'><img src='<%= post.image %>' width='100px'></td>
-          <td><div class='btn btn-primary'><%= link_to 'Show', post %></div></td>
-       </tr>
-      <% end %>
-    </tbody>
-  </table>
 </div>

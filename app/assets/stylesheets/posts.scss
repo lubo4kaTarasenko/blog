@@ -40,16 +40,7 @@ body{
   }
   h4{
     color: #833ab4;
-  }
-  td{
-    p {
-      font-size: 15px;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      max-width: 350px;
-    }
-  }
+  }  
   h2{
     color: #833ab4; 
   }
@@ -128,4 +119,26 @@ body{
 }
 .show_post_author img{
   width: 100px;
+}
+.container_index{
+  a{
+    color: black !important;
+    font-weight: bold;
+    &:hover{
+      color: purple !important
+    }
+  }
+  img{
+    width: 100px;
+  }
+  .row{
+    padding: 2%;
+    text-align: justify;
+    &:hover{
+      background: #ebe1ff;
+    }
+  }
+  .column{
+    overflow: hidden;
+  }
 }
