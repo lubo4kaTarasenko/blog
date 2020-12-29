@@ -126,7 +126,7 @@ body{
   img{
     width: 100px;
   }
-  .row{
+  .clickable{
     padding: 2%;
     text-align: justify;
     &:hover{
@@ -139,4 +139,7 @@ body{
 }
 .h5_c{
   margin-top: -3%;
+}
+.search{
+  padding: 2%;
 }

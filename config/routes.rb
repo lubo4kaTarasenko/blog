@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :authors, only: [:new, :create] do
+  resources :authors, only: %i[new create] do
     get :profile, on: :collection
     patch :save_profile, on: :collection
   end

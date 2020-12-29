@@ -2,9 +2,8 @@ class PostsController < ApplicationController
   before_action :set_public_post, only: %i[show]
   before_action :set_author_post, only: %i[edit update destroy]
 
-
   def index
-    @posts = Post.all
+    @posts = Post.search(params[:q])
   end
 
   def show
@@ -16,8 +15,8 @@ class PostsController < ApplicationController
                   @post.comments.published
                 end
 
-   # @post.update_columns(views_count: @post.views_count.to_i.succ)
-   @post.increment!(:views_count)
+    # @post.update_columns(views_count: @post.views_count.to_i.succ)
+    @post.increment!(:views_count)
   end
 
   def new

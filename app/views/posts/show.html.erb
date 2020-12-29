@@ -23,6 +23,7 @@
   <br/>
     <%if logged_in? && current_author.id == @post.author.id %>
       <div class='btn btn-warning'><%= link_to 'Edit', edit_post_path(@post) %></div> 
+      <div class='btn btn-danger'><%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
     <%end%>
   <div class='btn btn-primary'><%= link_to 'Back', posts_path %></div>
 </div>
