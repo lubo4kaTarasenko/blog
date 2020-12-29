@@ -13,13 +13,14 @@
   }
 }
 .cont{
-  margin: 20px;
-  width: 60%;  
-}
-.ow_x{
-  overflow-x: auto;
+  margin: auto;
+  text-align: justify;
   width: 90%; 
+  img{
+    margin: 2%;
+  } 
 }
+
 .show_post{
   p{
     font-size: 15px;
@@ -41,8 +42,11 @@ body{
   h4{
     color: #833ab4;
   }  
+  h5{
+    color: #833ab4;
+  }
   h2{
-    color: #833ab4; 
+    color: #833ab4;
   }
   .select_author{
     width: 30%;
@@ -51,18 +55,9 @@ body{
     padding: 5px;
   }
 }
-@media screen and (max-width: 600px) {
-  .none{
-    display: none;
-  }
+@media screen and (max-width: 600px) { 
   .header{
     font-size: 1.5em;
-  }
-  .cont{
-    width: 90% ;
-    .select_author{
-      width: 200px;
-    }
   }
 }
 .invisible{
