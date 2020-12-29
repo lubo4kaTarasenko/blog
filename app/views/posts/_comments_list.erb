@@ -20,6 +20,7 @@
 </form>
 
 <% @comments.each do |comment| %>
+  <br/>
   <div class='comment row'>
     <div class='col-sm-2'>
       <%= render "authors/avatar", author: comment.author %>

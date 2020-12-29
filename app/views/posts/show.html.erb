@@ -6,7 +6,7 @@
     <img src='<%= @post.image %>' width='200px'/>
   </div>
   <div>
-    <h5><%= @post.name %></h5>
+    <h5 class='h5_c'><%= @post.name %></h5>
   </div>
   <div>
     <p><%= @post.content %></p>
@@ -15,10 +15,10 @@
     <%= render "authors/avatar", author: @post.author %>
     <i><b><%= @post.author.email || @post.author.full_name %></b></i>
   </div><br/>
-  <div style="background: #fef7ff;">
-    <i>  &#9997; <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i> &nbsp; &nbsp;
-    <i> &#128065; <%= @post.views_count %> </i> &nbsp; &nbsp;
-    <i> &#128488;	<%= @post.comments_count || 0 %> <%= @post.comments_count != 1 ? ' comments' : ' comment' %></i>  
+  <div style="background: #fef7ff;" class='row'>
+    <div class='col-sm-2'><i>  &#9997; <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i></div>
+    <div class='col-sm-2'><i> &#128065; <%= @post.views_count %> </i></div>
+    <div class='col-sm-2'><i> &#128488;	<%= @post.comments_count || 0 %> <%= @post.comments_count != 1 ? ' comments' : ' comment' %></i></div>  
   </div>
   <br/>
     <%if logged_in? && current_author.id == @post.author.id %>
@@ -27,6 +27,7 @@
   <div class='btn btn-primary'><%= link_to 'Back', posts_path %></div>
 </div>
 <div class='cont add_comment'>
+  <br/>
   <% if logged_in? %>   
     <h4>New Comment</h4>
     <%= render 'comment_form' %>
@@ -35,7 +36,8 @@
   <% end %>
 </div>
 <div class='cont comment_list'>
+  <br/>
   <h4>Comments</h4>
- 
+  <br/> 
   <%= render 'comments_list' %>
 </div>
