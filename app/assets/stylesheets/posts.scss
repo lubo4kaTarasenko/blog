@@ -146,3 +146,11 @@ body{
 .search{
   padding: 2%;
 }
+.trix-content{
+  a{
+    color: blue !important;
+    &:hover{
+      color: purple !important
+    }
+  }
+}
