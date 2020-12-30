@@ -1,13 +1,3 @@
-<% if @show_register %>
-  <script>
-    $(function(){   
-      $(".modal_login").show()           
-      $('.close').click(function(){
-        $(".modal_login").css("display", "none")
-      }); 
-    })
-  </script>
-<%end%>
 <div class='cont show_post'>
   <%= render 'posts/modal'%>
   <div>
