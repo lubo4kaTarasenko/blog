@@ -154,3 +154,16 @@ body{
     }
   }
 }
+.modal_login{
+  a {
+    text-decoration: none;
+    color: white;
+    &:hover{
+      background: none;
+      color: white;
+    }
+    &:visited{
+      color: white;
+    }
+  }
+}
