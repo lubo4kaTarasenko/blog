@@ -16,3 +16,15 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
+global.$ = require('jquery')
+const $ = global.$;
+
+const main = function(){
+  $(".clickable").click(function(){
+      var url = $(this).find('a').attr("href")
+      $(location).attr('href',url);
+  });
+}
+
+$(document).ready(main)
+$(document).on('turbolinks:load', main)

@@ -1,12 +1,3 @@
-<script>
-  $(function(){
-    $(".clickable").click(function(e){
-        var url = $(this).find('a').attr("href")
-        $(location).attr('href',url);
-    });
-  })
-</script>
-
 <div class='container container_index'>
   <%= render 'posts/modal'%>
   <%= render 'posts/search_form'%>
