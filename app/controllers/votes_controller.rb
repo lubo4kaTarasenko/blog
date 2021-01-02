@@ -6,10 +6,13 @@ class VotesController < ApplicationController
     if @vote.present?     
       is_identical = @vote.positive?.to_s ==  vote_params[:positive]  
       @vote.destroy   
-      AuthorCommentVote.create(vote_params) unless is_identical
+      @vote = AuthorCommentVote.create(vote_params) unless is_identical
     else
-       AuthorCommentVote.create(vote_params)
+      @vote =  AuthorCommentVote.create(vote_params)
     end
+    @post = @vote.comment.post
+    @comments = @post.comments.to_a
+    render "posts/show"
   end
 
   private

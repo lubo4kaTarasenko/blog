@@ -32,7 +32,7 @@ const main = function(){
     }
   });
 
-  $(".vote").click(function(e){
+  $(".vote").off('click').click(function(e){
     e.preventDefault()
     e.stopPropagation()
     let type = $(this).attr('name')  
@@ -46,11 +46,12 @@ const main = function(){
         positive: type
       },
       success: function(response){
-        console.log(response)
-        const location = window.location.toString().replace(/#.+/, '') + '#comment_' + comment_id;
-        console.log(location)
-        Turbolinks.visit(window.location)
+        const $response = $(response)
+        const commentIdSelector = "#comment_" + comment_id
+        $(commentIdSelector).html($response.find(commentIdSelector).html())
+        main();
       }
+
     })
 
 

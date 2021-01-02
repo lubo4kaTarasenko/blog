@@ -32,7 +32,7 @@
   <br/>
   <% if logged_in? %>   
     <h4>New Comment</h4>
-    <%= render 'comment_form' %>
+    <%= render 'posts/comment_form' %>
   <% else %>
     <h6>Please, <%= link_to "Log in", '/login', method: :get%> or <%= link_to "Sign Up", '/authors/new'%> to leave a comment</h6>
   <% end %>
@@ -41,5 +41,5 @@
   <br/>
   <h4>Comments</h4>
   <br/> 
-  <%= render 'comments_list' %>
+  <%= render 'posts/comments_list' %>
 </div>
