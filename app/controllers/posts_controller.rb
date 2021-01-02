@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.search(params[:q])
+    @posts = Post.search(params[:q]).page params[:page]
   end
 
   def show

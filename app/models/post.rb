@@ -12,6 +12,9 @@ class Post < ApplicationRecord
     self.text = content.body.to_plain_text if content
   end
 
+  paginates_per 3
+  #max_paginates_per 8
+
   def self.search(pattern)
     if pattern.blank?
       all

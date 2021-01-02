@@ -10,5 +10,5 @@
         <div class='col-sm-7 column'><%= post.text[0..500] + '...' %></div>
       </div>
     <% end %>
-
+  <div class='pag'><%= paginate @posts %></div>
 </div>
