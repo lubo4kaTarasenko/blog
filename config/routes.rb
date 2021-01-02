@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     patch :save_profile, on: :collection
   end
 
+  post 'vote', to: 'votes#vote'
+  
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

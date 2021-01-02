@@ -24,7 +24,38 @@ const main = function(){
       var url = $(this).find('a').attr("href")
       $(location).attr('href',url);
   });
+  var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
+
+  $.ajaxSetup( {
+    beforeSend: function ( xhr ) {
+      xhr.setRequestHeader( 'X-CSRF-Token', token );
+    }
+  });
+
+  $(".vote").click(function(e){
+    e.preventDefault()
+    e.stopPropagation()
+    let type = $(this).attr('name')  
+    let comment_id = $(this).data('comment_id')
+    let path = '/vote'
+    $.ajax({
+      method: "POST", 
+      url: path, 
+      data: {        
+        comment_id: comment_id,
+        positive: type
+      },
+      success: function(response){
+        console.log(response)
+        const location = window.location.toString().replace(/#.+/, '') + '#comment_' + comment_id;
+        console.log(location)
+        Turbolinks.visit(window.location)
+      }
+    })
+
+
+  })
 }
 
-$(document).ready(main)
+// $(document).ready(main)
 $(document).on('turbolinks:load', main)

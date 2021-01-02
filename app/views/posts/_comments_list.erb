@@ -32,12 +32,16 @@
         <p>
           <b><%= comment.author.email || comment.author.full_name %></b>
         </p>
-        <div>
+        <div id="comment_<%= comment.id%>">
+          <button name='true' data-comment_id="<%= comment.id%>" class='like vote btn btn-outline-success'><i class='fa fa-thumbs-up'></i></button>
+          <i><%= comment.count_likes %></i>&nbsp;
+          <button name= 'false' data-comment_id="<%= comment.id%>" class='dislike vote btn btn-outline-danger'><i class='fa fa-thumbs-down'></i></button>
+          <i><%= comment.count_dislikes %></i>&nbsp;|
           <%if comment.created_at < comment.updated_at%><b>edited</b> |<%end%>
           <% less_than_hour = comment.created_at >= 1.hour.ago %>
           <% time = distance_of_time_in_words(comment.created_at, Time.now)%>
         <i> created  <%= time  %> ago</i>
-        </div>
+        </div><br/>
         <% if logged_in? && current_author.id == comment.author.id && less_than_hour %>   
           <button class='btn btn-warning edit_comment'>Edit Comment</button>
           <div class='cont add_comment update_comment invisible'>

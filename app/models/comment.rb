@@ -8,6 +8,13 @@ class Comment < ApplicationRecord
   validates :body, presence: true
   validates :body, length: { minimum: 5 }
 
-  # scope :published,   -> { where(status: :published) }
-  # scope :unpublished,   -> { where(status: :unpublished) }
+
+  def count_likes
+    self.author_comment_votes.liked.count
+  end
+
+  def count_dislikes
+    self.author_comment_votes.disliked.count
+  end
+
 end

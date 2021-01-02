@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_02_083836) do
+ActiveRecord::Schema.define(version: 2021_01_02_100339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_01_02_083836) do
     t.boolean "positive"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id", "comment_id"], name: "index_author_comment_votes_on_author_id_and_comment_id", unique: true
     t.index ["author_id"], name: "index_author_comment_votes_on_author_id"
     t.index ["comment_id"], name: "index_author_comment_votes_on_comment_id"
   end
