@@ -17,9 +17,9 @@
     <i><b><%= @post.author.email || @post.author.full_name %></b></i>
   </div><br/>
   <div style="background: #fef7ff;" class='row'>
-    <div class='col-sm-2'><i>  &#9997; <%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i></div>
-    <div class='col-sm-2'><i> &#128065; <%= @post.views_count %> </i></div>
-    <div class='col-sm-2'><i> &#128488;	<%= @post.comments_count || 0 %> <%= @post.comments_count != 1 ? ' comments' : ' comment' %></i></div>  
+    <div class='col-sm-2'><i> <i class='fa fa-clock-o'></i> &nbsp;<%= distance_of_time_in_words(@post.updated_at, Time.now) %> ago</i></div>
+    <div class='col-sm-2'><i><i class='fa fa-eye'></i> &nbsp; <%= @post.views_count %> </i></div>
+    <div class='col-sm-2'><i><i class='fa fa-comments'></i> &nbsp;	<%= @post.comments_count || 0 %> <%= @post.comments_count != 1 ? ' comments' : ' comment' %></i></div>  
   </div>
   <br/>
     <%if logged_in? && current_author.id == @post.author.id %>

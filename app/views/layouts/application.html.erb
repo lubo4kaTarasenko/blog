@@ -17,15 +17,15 @@
   <body>
     <div class="jumbotron jumbotron-fluid header">
       <div class="container">
-        <div class='left'>Super amazing blog</div>
+        <div class='left'>Super amazing blog </div>
         <% if logged_in? %>        
-          <div class='right'>&#9998;<%= link_to 'New Post', new_post_path %> </div>
-          <div class='right'>&#9825; <%= link_to 'Home', posts_path %></div>
-          <div class='right'>&#9734;<%= link_to 'Log out', logout_path, method: :delete %></div>
+          <div class='right'><i class='fa fa-pencil'></i> <%= link_to 'New Post', new_post_path %> </div>
+          <div class='right'><i class='fa fa-home'></i> <%= link_to 'Home', posts_path %></div>
+          <div class='right'><i class='fa fa-sign-out'></i><%= link_to 'Log out', logout_path, method: :delete %></div>
           <div class='right'><%= link_to "#{current_author.email}", '/authors/profile', method: :get %></div>
         <% else %>
-          <div class='right'>&#9996;<%= link_to "Log in", '/login', method: :get%></div>
-          <div class='right'>&#9995;<%= link_to "Sign Up", '/authors/new', method: :get%></div>
+          <div class='right'>|<%= link_to "Log in", '/login', method: :get%></div>
+          <div class='right'><i class='fa fa-sign-in'></i><%= link_to "Sign Up", '/authors/new', method: :get%></div>&nbsp;
       <%end%>        
       </div>
     </div>
