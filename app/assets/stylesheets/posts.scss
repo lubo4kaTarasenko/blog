@@ -75,14 +75,22 @@ body{
   padding: 10px;
 }
 .comment{
-  padding: 10px;
-  background: #5f73f575;
+  padding: 20px;
+  background: #eceffd;
   border-radius: 10px;
   margin-bottom: 10px;
   word-break: break-word;
   overflow: hidden;
+  .reply{
+    color: blue;
+    &:hover{
+      color: blueviolet;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
   img {
-    width: 100px;
+    width: 50px;
   }
   a {
     text-decoration: none;
@@ -100,6 +108,10 @@ body{
     &:hover{
       color: white;
     }
+  }
+  .float{
+    float: left;
+    margin-right: 2%;
   }
 }
 #alert {
