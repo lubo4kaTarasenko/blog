@@ -1,5 +1,5 @@
 
-<div class='comment'>
+<div class='comment <%= "hidden_c" if comment.parent.present? %>'>
   <div class='comment_ava float'>
     <%= render "authors/avatar", author: comment.author %>
   </div>
@@ -50,6 +50,7 @@
     <%end%>
 
     <% if comment.children.present? %>
+      <i class='fa fa-chevron-down open_children'></i>
       <% comment.children.each do |child| %>   
           <%= render 'posts/comment_one', comment: child%>
       <% end %>  

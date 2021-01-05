@@ -27,6 +27,11 @@ const main = function(){
   });
   var token = $( 'meta[name="csrf-token"]' ).attr( 'content' );
 
+  $('.open_children').click(function(){ 
+    $(this).parent('.comment').find('> .hidden_c').removeClass('hidden_c');
+    $(this).addClass('hidden_c')
+  });
+
   $.ajaxSetup( {
     beforeSend: function ( xhr ) {
       xhr.setRequestHeader( 'X-CSRF-Token', token );

@@ -90,6 +90,17 @@ body{
   margin-bottom: 10px;
   word-break: break-word;
   overflow: hidden;
+  .hidden_c{
+    display: none;
+  }
+  .open_children{
+    color: rgb(195, 0, 255);
+    &:hover{
+      color: rgb(127, 0, 247);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
   .reply{
     color: blue;
     &:hover{
