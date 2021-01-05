@@ -2,6 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :post, required: true, counter_cache: true
   belongs_to :author, required: true
   has_many :author_comment_votes
+  has_ancestry
 
   enum status: %i[unpublished published]
 

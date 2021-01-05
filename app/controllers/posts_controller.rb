@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     @comments = @post.comments.all
     @post.update_columns(views_count: @post.views_count.to_i.succ)    
     @post.increment!(:views_count)
+   
   end
 
   def new
