@@ -34,7 +34,7 @@
         <i class='btn btn-danger fa fa-trash-o'>
           <%= link_to 'remove', [comment.post, comment],
                     method: :delete,
-                    data: { confirm: "Are you sure?" } %>
+                    data: { confirm: "Are you sure?" }, remote: true %>
         </i>
       </span>
     <% end %>

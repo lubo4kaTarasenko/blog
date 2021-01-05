@@ -1,6 +1,6 @@
 <% comment ||= @post.comments.build%>
 <div class='comment_form'>
-  <%= form_with model: [ @post, comment ], remote: true do |form| %>
+  <%= form_with model: [ @post, comment ], local: false  do |form| %>
     <div class="field">
       <%= form.text_area :body, class: 'form-control', rows: "3"%>
     </div>
