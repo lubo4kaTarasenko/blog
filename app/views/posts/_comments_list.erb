@@ -23,57 +23,7 @@
   </div>
 </form> -->
 
-<% @comments.each do |comment| %>
+<% @comments.select(&:root?).each do |comment| %>
   <br/>
-  <div class='comment row'>
-    <div class='col-sm-2'>
-      <%= render "authors/avatar", author: comment.author %>
-    </div>
-    <div class='col-sm-10'>
-        <div>
-          <%= comment.body %>
-        </div>
-        <p>
-          <b><%= comment.author.email || comment.author.full_name %></b>
-        </p>
-        <div id="comment_<%= comment.id%>">
-          <button name='true' data-comment_id="<%= comment.id%>" class='like vote btn btn-outline-success'><i class='fa fa-thumbs-up'></i></button>
-          <i><%= comment.count_likes %></i>&nbsp;
-          <button name= 'false' data-comment_id="<%= comment.id%>" class='dislike vote btn btn-outline-danger'><i class='fa fa-thumbs-down'></i></button>
-          <i><%= comment.count_dislikes %></i>&nbsp;|
-          <%if comment.created_at < comment.updated_at%><b>edited</b> |<%end%>
-          <% less_than_hour = comment.created_at >= 1.hour.ago %>
-          <% time = distance_of_time_in_words(comment.created_at, Time.now)%>
-        <i> created  <%= time  %> ago</i>
-        </div><br/>
-        <% if logged_in? && current_author.id == comment.author.id && less_than_hour %>
-          <span class='comment_form_parent'>   
-            <button class='btn btn-warning edit_comment'>Edit Comment</button>
-            <div class='cont add_comment update_comment invisible'>
-              <h4>Edit Comment</h4>
-              <%= render 'posts/comment_form', comment: comment, parent_comment: nil%>
-            </div>          
-          <!--<% if comment.status == 'unpublished' %>
-            <div class='btn btn-primary'>
-              <%= link_to 'Publish Comment', publish_post_comment_path(@post.id, comment.id), method: :post %>
-            </div>
-          <% end %> -->
-            <div class='btn btn-danger'>
-              <%= link_to 'Destroy Comment', [comment.post, comment],
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } %>
-            </div>
-          </span>
-        <% end %>
-        <% if logged_in? %>
-        <span class='comment_form_parent'>
-         <button class='btn btn-info edit_comment'>Reply</button>
-         <div class='cont add_comment update_comment invisible'>
-            <h4>Reply</h4>
-            <%= render 'posts/comment_form', parent_comment: comment%>
-          </div>
-        </span>
-        <%end%>
-      </div>
- </div>
+    <%= render 'posts/comment_one', comment: comment%>
 <% end %>
