@@ -1,3 +1,4 @@
+
 <div class='comment'>
   <div class='comment_ava float'>
     <%= render "authors/avatar", author: comment.author %>
@@ -5,7 +6,7 @@
   <div class='float'>
       <b><%= comment.author.email || comment.author.full_name %></b>
   </div>
-  <div id="comment_<%= comment.id%>">
+  <div id="comment_<%= comment.id%>" class='full'>
       <button name='true' data-comment_id="<%= comment.id%>" class='like vote btn btn-outline-success'><i class='fa fa-thumbs-up'></i></button>
       <i><%= comment.count_likes %></i>&nbsp;
       <button name= 'false' data-comment_id="<%= comment.id%>" class='dislike vote btn btn-outline-danger'><i class='fa fa-thumbs-down'></i></button>
@@ -14,8 +15,7 @@
       <% less_than_hour = comment.created_at >= 1.hour.ago %>
       <% time = distance_of_time_in_words(comment.created_at, Time.now)%>
       <i> created  <%= time  %> ago</i>
-  </div><br/>
-
+  </div>
   <div class='comment_body'>
     <%= comment.body %>
   </div>    
@@ -23,7 +23,7 @@
       <span class='comment_form_parent'>   
         <i class='fa fa-pencil-square-o btn btn-warning edit_comment'></i>
         <div class='cont add_comment update_comment invisible'>
-          <h4>Edit Comment</h4>
+          <h6>Edit Comment</h6>
           <%= render 'posts/comment_form', comment: comment, parent_comment: nil%>
         </div>          
       <!--<% if comment.status == 'unpublished' %>
@@ -43,16 +43,15 @@
     <span class='comment_form_parent'>
     <span class='reply edit_comment'>Reply</span>
     <div class='cont add_comment update_comment invisible'>
-        <h4>Reply</h4>
+        <br/>
         <%= render 'posts/comment_form', parent_comment: comment%>
       </div>
     </span>
     <%end%>
 
     <% if comment.children.present? %>
-      <% comment.children.each do |child| %>        
+      <% comment.children.each do |child| %>   
           <%= render 'posts/comment_one', comment: child%>
-
       <% end %>  
     <% end %>
 

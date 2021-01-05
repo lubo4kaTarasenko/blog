@@ -66,6 +66,14 @@ body{
   .search_imp{   
     margin-bottom: 5%;
   }
+  .comment{
+    .float{
+      width: 90%;
+    }
+    .full{
+      width: 100%;
+    }
+  }
 }
 .invisible{
   display: none !important;
@@ -75,7 +83,8 @@ body{
   padding: 10px;
 }
 .comment{
-  padding: 20px;
+  padding: 10px;
+  padding-left: 40px;
   background: #eceffd;
   border-radius: 10px;
   margin-bottom: 10px;
