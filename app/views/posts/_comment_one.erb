@@ -24,7 +24,7 @@
         <i class='fa fa-pencil-square-o btn btn-warning edit_comment'></i>
         <div class='cont add_comment update_comment invisible'>
           <h6>Edit Comment</h6>
-          <%= render 'posts/comment_form', comment: comment, parent_comment: nil%>
+          <%= render 'posts/comment_form', comment: comment, parent_comment: comment.parent%>
         </div>          
       <!--<% if comment.status == 'unpublished' %>
         <div class='btn btn-primary'>
