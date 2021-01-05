@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     message = if @comment.persisted?
                 { notice: 'Commented created successfully' }
               else
-                { alert: 'Comment was not created. Make sure your comment is not less then 5 chars' }
+                { alert: 'Comment was not created. Make sure your comment is not less then 5 chars and it is not to deep' }
               end
     redirect_to post_path(@post), message
   end

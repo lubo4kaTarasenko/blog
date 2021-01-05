@@ -39,7 +39,7 @@
       </span>
     <% end %>
     
-    <% if logged_in? %>
+    <% if logged_in? && comment.depth < 4  %>
     <span class='comment_form_parent'>
     <span class='reply edit_comment'>Reply</span>
     <div class='cont add_comment update_comment invisible'>
@@ -48,7 +48,7 @@
       </div>
     </span>
     <%end%>
-    
+
     <% if comment.children.present? %>
       <% comment.children.each do |child| %>        
           <%= render 'posts/comment_one', comment: child%>

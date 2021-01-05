@@ -8,6 +8,7 @@ class Comment < ApplicationRecord
 
   validates :body, presence: true
   validates :body, length: { minimum: 5 }
+  validates_with Validators::DepthValidator 
 
 
   def count_likes
