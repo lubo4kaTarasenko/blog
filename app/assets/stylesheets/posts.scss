@@ -67,14 +67,17 @@ body{
     margin-bottom: 5%;
   }
   .comment{
-    padding: 5px;
-    padding-left: 10px;
     .float{
       width: 90%;
     }
     .full{
       width: 100%;
     }
+  }
+}
+@media screen and (min-width: 600px) {  
+  .comment{
+    padding-left: 40px !important;
   }
 }
 .invisible{
@@ -86,7 +89,6 @@ body{
 }
 .comment{
   padding: 10px;
-  padding-left: 40px;
   background: #eceffd;
   border-radius: 10px;
   margin-bottom: 10px;
