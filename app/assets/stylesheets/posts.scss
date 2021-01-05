@@ -66,12 +66,19 @@ body{
   .search_imp{   
     margin-bottom: 5%;
   }
+  .row{
+    border-bottom: 1px solid blueviolet;
+  }
   .comment{
     .float{
       width: 90%;
     }
     .full{
       width: 100%;
+    }
+    .block{
+      display: block;
+      font-size: small;
     }
   }
 }

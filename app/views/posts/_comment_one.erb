@@ -14,7 +14,7 @@
       <%if comment.created_at < comment.updated_at%><b>edited</b> |<%end%>
       <% less_than_hour = comment.created_at >= 1.hour.ago %>
       <% time = distance_of_time_in_words(comment.created_at, Time.now)%>
-      <i> created  <%= time  %> ago</i>
+      <span class='block'><i> created  <%= time  %> ago</i></span>
   </div>
   <div class='comment_body'>
     <%= comment.body %>
