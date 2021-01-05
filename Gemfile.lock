@@ -274,7 +274,6 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
-  tree_view
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)
