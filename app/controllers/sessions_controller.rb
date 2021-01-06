@@ -5,10 +5,8 @@ class SessionsController < ApplicationController
     @author = Author.find_by(email: params[:email])
     if @author && @author.authenticate(params[:password])
       session[:author_id] = @author.id
-      Rails.logger.info 'authorize'
       redirect_to :root
     else
-      Rails.logger.info 'Invalid'
       redirect_to login_path, alert: 'Invalid email or password'
     end
   end

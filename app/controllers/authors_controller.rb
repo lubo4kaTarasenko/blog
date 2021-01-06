@@ -4,7 +4,7 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    @author = Author.create(params.require(:author).permit(:email, :password))
+    @author = Author.create(author_auth_params)
     session[:author_id] = @author.id
     if @author.valid?
       redirect_to :root
@@ -18,8 +18,7 @@ class AuthorsController < ApplicationController
   end
 
   def save_profile
-    @author = current_author
-    @author.update(author_params)
+    current_author.update(author_params)
     redirect_to profile_authors_path
   end
 
@@ -27,5 +26,9 @@ class AuthorsController < ApplicationController
 
   def author_params
     params.require(:author).permit(:avatar, :first_name, :last_name)
+  end
+
+  def author_auth_params
+    params.require(:author).permit(:email, :password)
   end
 end

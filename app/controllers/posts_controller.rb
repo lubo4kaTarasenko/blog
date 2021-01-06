@@ -3,13 +3,6 @@ class PostsController < ApplicationController
   before_action :set_author_post, only: %i[edit update destroy]
   before_action :add_view, only: %i[index show]
 
-  def add_view
-    unless current_author
-      cookies[:views] = cookies[:views].present? ? cookies[:views].to_i + 1 : 1 
-      @show_register = cookies[:views].to_i % 5 == 0
-    end
-  end
-
   def index
     @posts = Post.search(params[:q]).page params[:page]
   end
@@ -69,4 +62,12 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:name, :title, :content, :image)
   end
+
+  def add_view
+    unless current_author
+      cookies[:views] = cookies[:views].present? ? cookies[:views].to_i + 1 : 1 
+      @show_register = cookies[:views].to_i % 5 == 0
+    end
+  end
+
 end

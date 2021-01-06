@@ -64,5 +64,4 @@ const main = function(){
   })
 }
 
-// $(document).ready(main)
 $(document).on('turbolinks:load', main)
