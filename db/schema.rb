@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_04_094748) do
+ActiveRecord::Schema.define(version: 2021_01_08_111019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_01_04_094748) do
     t.string "email"
     t.string "password_digest"
     t.string "avatar"
+    t.string "token"
   end
 
   create_table "comments", force: :cascade do |t|

@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  post 'api/auth', to: 'api/auth#sign_up'
+  put 'api/auth', to: 'api/auth#log_in'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
