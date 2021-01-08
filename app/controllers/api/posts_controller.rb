@@ -9,16 +9,16 @@ class Api::PostsController < ActionController::API
     render json: { posts: posts }
   end
 
-  #def create
+  def create
+    json = params.permit(:name, :title, :content, :image)
+    json = JSON.parse(request.body.read).symbolize_keys if json.empty?
 
-  #  json = params.permit(:name, :title, :content, :image)
-  #  json = JSON.parse(request.body.read).symbolize_keys if json.empty?
+    user_id = Author.find_by(token: params[:token]).id
 
-  #  user_id = Author.where(token: params[:token]).id
-
-  #  post = Post.create(json.merge(author_id: user_id)))
-  #  render json: { post: post.values }
-  #end
+    post = Post.create(json.merge(author_id: user_id))
+  
+    render json: { post: post.attributes }
+  end
 
  def update
     json = params.permit(:id, :text, :check, :color)
